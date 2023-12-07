@@ -5,28 +5,28 @@ public class UserInput : Mover
 {
     [SerializeField] private float _speed = 5;
 
-    public override event UnityAction<Vector2> EventDirection;
-    public override event UnityAction<float> EventSpeed;
+    public override event UnityAction<Vector2> DirectionChanged;
+    public override event UnityAction<float> SpeedChanged;
     public override event UnityAction Jump;
 
     void Update()
     {
-        CheakingButtonDown(KeyCode.D, Vector2.right);
-        CheakingButtonDown(KeyCode.A, Vector2.left);
+        CheakingButtonPress(KeyCode.D, Vector2.right);
+        CheakingButtonPress(KeyCode.A, Vector2.left);
         CheakingButtonDown(KeyCode.Space, Jump);
     }
 
-    private void CheakingButtonDown(KeyCode keyCode, Vector2 direction)
+    private void CheakingButtonPress(KeyCode keyCode, Vector2 direction)
     {
         if (Input.GetKey(keyCode))
         {
-            EventDirection?.Invoke(direction);
-            EventSpeed?.Invoke(_speed);
+            DirectionChanged?.Invoke(direction);
+            SpeedChanged?.Invoke(_speed);
         }
         else if (Input.GetKeyUp(keyCode))
         {
-            EventDirection?.Invoke(Vector2.zero);
-            EventSpeed?.Invoke(0);
+            DirectionChanged?.Invoke(Vector2.zero);
+            SpeedChanged?.Invoke(0);
         }
     }
 

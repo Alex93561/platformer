@@ -8,7 +8,7 @@ public class Jumper : MonoBehaviour
     [SerializeField] private float _jumpSpeed = 5f;
 
     [SerializeField] private UserInput _userInput;
-    [SerializeField] private PlayerColliderManager _playerColliderManager;
+    [SerializeField] private CollisionHandler _playerColliderManager;
 
     private Coroutine _jumpCoroutine;
     private Rigidbody2D _rigidbody2D;
@@ -41,9 +41,9 @@ public class Jumper : MonoBehaviour
         }
     }
 
-    public void Stop(bool test)
+    public void Stop(bool isHitCeiling)
     {
-        if (_jumpCoroutine != null && test)
+        if (_jumpCoroutine != null && isHitCeiling)
         {
             _rigidbody2D.gravityScale = 1;
             StopCoroutine(_jumpCoroutine);

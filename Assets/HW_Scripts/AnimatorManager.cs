@@ -7,14 +7,14 @@ public class AnimatorManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _mover.EventDirection += Look;
-        _mover.EventSpeed += SetSpeed;
+        _mover.DirectionChanged += Look;
+        _mover.SpeedChanged += SetSpeed;
     }
 
     private void OnDisable()
     {
-        _mover.EventDirection -= Look;
-        _mover.EventSpeed -= SetSpeed;
+        _mover.DirectionChanged -= Look;
+        _mover.SpeedChanged -= SetSpeed;
     }
 
     private void Look(Vector2 direction)

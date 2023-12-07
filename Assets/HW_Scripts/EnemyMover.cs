@@ -7,12 +7,12 @@ public class EnemyMover : Mover
     [SerializeField] private float _maxMovementLeft = -1;
     [SerializeField] private float _speed = 4;
 
-    public override event UnityAction<Vector2> EventDirection;
-    public override event UnityAction<float> EventSpeed;
+    public override event UnityAction<Vector2> DirectionChanged;
+    public override event UnityAction<float> SpeedChanged;
 
     private Vector3 _rightEndPoint;
     private Vector3 _leftEndPoint;
-    private Vector2 _currentVector2;
+    private Vector2 _currentDirection;
 
     private void Start()
     {
@@ -26,33 +26,33 @@ public class EnemyMover : Mover
             _maxMovementLeft, transform.position.y,
             transform.position.z);
 
-        _currentVector2 = Vector2.right;
+        _currentDirection = Vector2.right;
     }
 
     private void Update()
     {
-        _currentVector2 = ChangeDirection();
-        EventDirection?.Invoke(_currentVector2);
-        EventSpeed?.Invoke(_speed);
+        _currentDirection = GetDirection();
+        DirectionChanged?.Invoke(_currentDirection);
+        SpeedChanged?.Invoke(_speed);
     }
 
-    private Vector2 ChangeDirection()
+    private Vector2 GetDirection()
     {
-        Vector2 vector2;
+        Vector2 direction;
 
         if (transform.position.x >= _rightEndPoint.x)
         {
-            vector2 = Vector2.left;
+            direction = Vector2.left;
         }
         else if (transform.position.x <= _leftEndPoint.x)
         {
-            vector2 = Vector2.right;
+            direction = Vector2.right;
         }
         else
         {
-            vector2 = _currentVector2;
+            direction = _currentDirection;
         }
 
-        return vector2;
+        return direction;
     }
 }
