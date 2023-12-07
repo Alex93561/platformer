@@ -5,15 +5,14 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] private float _rayCastDownLength = 0.02f;
     [SerializeField] private float _rayCastUpLength = 0.02f;
+    [SerializeField] ContactFilter2D _contactsFilter;
 
     public event UnityAction<bool> IsGround;
     public event UnityAction<bool> IsHitCeiling;
 
     private Transform _transform;
     private Rigidbody2D _rigidbody2D;
-
     private RaycastHit2D[] _raycastHits;
-    [SerializeField] ContactFilter2D _contactsFilter;
 
     private void Start()
     {

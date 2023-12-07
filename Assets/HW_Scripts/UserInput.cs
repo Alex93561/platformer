@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UserInput : Mover
+public class UserInput : MonoBehaviour, IMover
 {
     [SerializeField] private float _speed = 5;
 
-    public override event UnityAction<Vector2> DirectionChanged;
-    public override event UnityAction<float> SpeedChanged;
-    public override event UnityAction Jump;
+    public event UnityAction<Vector2> DirectionChanged;
+    public event UnityAction<float> SpeedChanged;
+    public event UnityAction Jump;
 
     void Update()
     {

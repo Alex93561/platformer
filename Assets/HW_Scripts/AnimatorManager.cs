@@ -3,7 +3,13 @@ using UnityEngine;
 public class AnimatorManager : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private Mover _mover;
+
+    private IMover _mover;
+
+    private void Awake()
+    {
+        _mover = GetComponent<IMover>();
+    }
 
     private void OnEnable()
     {

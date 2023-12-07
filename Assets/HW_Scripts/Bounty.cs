@@ -8,7 +8,6 @@ public class Bounty : MonoBehaviour
     [SerializeField] private AnimationClip _animationClip;
     [SerializeField] private AudioSource _audioSource;
 
-
     private Collider2D _collider;
     private WaitForSeconds _sleep;
     private Coroutine _coroutine;

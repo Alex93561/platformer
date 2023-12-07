@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class HorizontalMovement : MonoBehaviour
 {
-    [SerializeField] private Mover _mover;
-
+    private IMover _mover;
     private float _speed;
+
+    private void Awake()
+    {
+        _mover = GetComponent<IMover>();
+    }
 
     private void OnEnable()
     {

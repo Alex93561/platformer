@@ -6,7 +6,6 @@ public class Jumper : MonoBehaviour
 {
     [SerializeField] private float _jumpHeight = 3f;
     [SerializeField] private float _jumpSpeed = 5f;
-
     [SerializeField] private UserInput _userInput;
     [SerializeField] private CollisionHandler _playerColliderManager;
 

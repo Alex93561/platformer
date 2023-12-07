@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyMover : Mover
+public class EnemyMover : MonoBehaviour, IMover
 {
     [SerializeField] private float _maxMovementRight = 1;
     [SerializeField] private float _maxMovementLeft = -1;
     [SerializeField] private float _speed = 4;
 
-    public override event UnityAction<Vector2> DirectionChanged;
-    public override event UnityAction<float> SpeedChanged;
+    public event UnityAction<Vector2> DirectionChanged;
+    public event UnityAction<float> SpeedChanged;
+    public event UnityAction Jump;
 
     private Vector3 _rightEndPoint;
     private Vector3 _leftEndPoint;
