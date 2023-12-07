@@ -12,5 +12,6 @@ public static class Parametrs
     public static class Trigers
     {
         public const string PickUp = nameof(PickUp);
+        public const string PickUp2 = nameof(PickUp2);
     }
 }

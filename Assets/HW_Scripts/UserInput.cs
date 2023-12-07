@@ -9,7 +9,7 @@ public class UserInput : MonoBehaviour, IMover
     public event UnityAction<float> SpeedChanged;
     public event UnityAction Jump;
 
-    void Update()
+    private void Update()
     {
         CheakingButtonPress(KeyCode.D, Vector2.right);
         CheakingButtonPress(KeyCode.A, Vector2.left);

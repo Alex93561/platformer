@@ -34,7 +34,7 @@ public class Bounty : MonoBehaviour
         yield return _sleep;
         gameObject.SetActive(false);
 
-        if(_coroutine != null )
+        if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }
