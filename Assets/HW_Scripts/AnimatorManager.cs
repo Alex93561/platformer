@@ -4,7 +4,6 @@ public class AnimatorManager : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Mover _mover;
-    [SerializeField] private string _floatParametrName;
 
     private void OnEnable()
     {
@@ -34,6 +33,6 @@ public class AnimatorManager : MonoBehaviour
 
     private void SetSpeed(float speed)
     {
-        _animator.SetFloat(_floatParametrName, speed);
+        _animator.SetFloat(Parametrs.Params.Speed, speed);
     }
 }

@@ -12,23 +12,19 @@ public class EnemyMover : Mover
 
     private Vector3 _rightEndPoint;
     private Vector3 _leftEndPoint;
-
-    private Transform _transform;
     private Vector2 _currentVector2;
 
     private void Start()
     {
-        _transform = GetComponent<Transform>();
-
         _rightEndPoint = new Vector3(
-            _transform.position.x + _maxMovementRight,
-            _transform.position.y,
-            _transform.position.z);
+            transform.position.x + _maxMovementRight,
+            transform.position.y,
+            transform.position.z);
 
         _leftEndPoint = new Vector3(
-            _transform.position.x +
-            _maxMovementLeft, _transform.position.y,
-            _transform.position.z);
+            transform.position.x +
+            _maxMovementLeft, transform.position.y,
+            transform.position.z);
 
         _currentVector2 = Vector2.right;
     }
@@ -44,11 +40,11 @@ public class EnemyMover : Mover
     {
         Vector2 vector2;
 
-        if (_transform.position.x >= _rightEndPoint.x)
+        if (transform.position.x >= _rightEndPoint.x)
         {
             vector2 = Vector2.left;
         }
-        else if (_transform.position.x <= _leftEndPoint.x)
+        else if (transform.position.x <= _leftEndPoint.x)
         {
             vector2 = Vector2.right;
         }

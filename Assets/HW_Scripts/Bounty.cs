@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class Bounty : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
@@ -20,11 +21,11 @@ public class Bounty : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.TryGetComponent<UserInput>(out _))
         {
             _collider.enabled = false;
             _audioSource.Play();
-            _animator.SetTrigger("PickUp");
+            _animator.SetTrigger(Parametrs.Trigers.PickUp);
             _coroutine = StartCoroutine(DisabledCoin());
         }
     }

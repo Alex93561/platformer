@@ -13,7 +13,6 @@ public class UserInput : Mover
     {
         CheakingButtonDown(KeyCode.D, Vector2.right);
         CheakingButtonDown(KeyCode.A, Vector2.left);
-
         CheakingButtonDown(KeyCode.Space, Jump);
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Jumper : MonoBehaviour
 {
     [SerializeField] private float _jumpHeight = 3f;
@@ -10,13 +11,11 @@ public class Jumper : MonoBehaviour
     [SerializeField] private PlayerColliderManager _playerColliderManager;
 
     private Coroutine _jumpCoroutine;
-    private Transform _transform;
     private Rigidbody2D _rigidbody2D;
     private bool _isGround;
 
     private void Start()
     {
-        _transform = GetComponent<Transform>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -63,7 +62,7 @@ public class Jumper : MonoBehaviour
 
         while (tempJumpHeight > 0)
         {
-            _transform.position += _transform.up * _jumpHeight * Time.deltaTime * _jumpSpeed;
+            transform.position += transform.up * _jumpHeight * Time.deltaTime * _jumpSpeed;
             tempJumpHeight -= _jumpHeight * Time.deltaTime * _jumpSpeed;
 
             yield return Time.deltaTime;
